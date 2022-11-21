@@ -1,0 +1,48 @@
+BANCO DE DADOS
+
+use my-wallet-db
+
+db.createCollection('users')
+db.createCollection('registry')
+
+db.users.insert({name: 'Ana', email: 'ana@gamil.com', password: '123456'} )
+db.registry.insert({name: 'Ana', item:{date: '26/11', label:’almoço’, type:”income ou outcome” value: '39,99'})
+
+ROTAS
+- login (/)
+- signup (signup)
+- home
+- register
+
+
+FUNÇÕES
+- post (/) 
+{
+	email: "...",
+	password: "..."
+}
+
+retorna:
+{
+    "id": ,
+    "name": "Fulano",
+	"item": {"date": "26/11", "label":"almoço", "type":”income ou outcome”, "value": "39,99"},
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjIxMjg0NzExfQ.b8e3bYm7TnU5p6pfrCPPbzboax6gvh_gGNFR4T51FxY"
+}
+
+
+- post (signup) {
+	email: "fulano@email.com",
+	name: "Fulano",
+	password: "123"
+}
+retorna igual ao do login
+
+- get (home) {}
+
+- post (register) {}
+
+/*app.get("/home", async (req, res) => {
+  const registryData = await registryCollection.find().toArray();
+  res.send(registryData);
+});*/
